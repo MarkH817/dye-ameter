@@ -1,16 +1,15 @@
 {
   "name": "dye-ameter",
   "version": "0.1.0",
-  "description": "A color palette desktop app",
+  "description": "A color palette progressive web app",
   "main": "src/main/index.js",
   "directories": {
     "doc": "docs",
     "test": "test"
   },
   "scripts": {
-    "start": "concurrently \"electron .\" \"npm run dev\" --kill-others",
-    "test": "standard && mocha",
-    "dev": "gulp"
+    "dev": "gulp",
+    "test": "standard && mocha"
   },
   "repository": {
     "type": "git",
@@ -19,7 +18,7 @@
   "keywords": [
     "color",
     "palette",
-    "desktop"
+    "pwa"
   ],
   "author": "Mark Hernandez <markedcode@gmail.com>",
   "license": "MIT",
@@ -38,7 +37,6 @@
     "concurrently": "^3.5.0",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
-    "electron": "1.7.9",
     "gulp": "^3.9.1",
     "gulp-ejs": "^3.0.1",
     "gulp-htmlmin": "^3.0.0",

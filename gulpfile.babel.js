@@ -20,7 +20,7 @@ gulp.task('clean', () => {
 })
 
 gulp.task('js:dev', () => {
-  return gulp.src('src/renderer/*.js')
+  return gulp.src('src/*.js')
     .pipe(plumber())
     .pipe(gulpWebpack(configDev, webpack))
     .pipe(gulp.dest('build/js'))
@@ -28,7 +28,7 @@ gulp.task('js:dev', () => {
 })
 
 gulp.task('js:prod', () => {
-  return gulp.src('src/renderer/*.js')
+  return gulp.src('src/*.js')
     .pipe(plumber())
     .pipe(gulpWebpack(configProd, webpack))
     .pipe(gulp.dest('build/js'))
@@ -41,7 +41,7 @@ gulp.task('styles', () => {
     cssnano()
   ]
 
-  return gulp.src('src/styles/*.less')
+  return gulp.src('styles/*.less')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(less())
@@ -52,7 +52,7 @@ gulp.task('styles', () => {
 })
 
 gulp.task('pages', () => {
-  return gulp.src('src/pages/views/**/*.ejs')
+  return gulp.src('pages/views/**/*.ejs')
     .pipe(plumber())
     .pipe(ejs({}, {}, {
       ext: '.html'
@@ -73,11 +73,11 @@ gulp.task('watch', () => {
     server: 'build'
   })
 
-  gulp.watch('src/renderer/**/*.js', ['js:dev'])
+  gulp.watch('src/**/*.js', ['js:dev'])
 
-  gulp.watch('src/styles/**/*.less', ['styles'])
+  gulp.watch('styles/**/*.less', ['styles'])
 
-  gulp.watch('src/pages/**/*.ejs', ['pages'])
+  gulp.watch('pages/**/*.ejs', ['pages'])
 
   gulp.watch('build/**/*.html', browserSync.reload)
 })

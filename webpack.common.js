@@ -3,7 +3,7 @@ import webpack from 'webpack'
 
 const options = {
   entry: {
-    index: './src/renderer/index.js',
+    index: './src/index.js',
     vendor: [
       'react',
       'react-dom',
