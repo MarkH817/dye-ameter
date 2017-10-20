@@ -1,0 +1,61 @@
+{
+  "name": "dye-ameter",
+  "version": "0.1.0",
+  "description": "A color palette desktop app",
+  "main": "src/main/index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "concurrently \"electron .\" \"npm run dev\" --kill-others",
+    "test": "standard && mocha",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkH817/dye-ameter.git"
+  },
+  "keywords": [
+    "color",
+    "palette",
+    "desktop"
+  ],
+  "author": "Mark Hernandez <markedcode@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarkH817/dye-ameter/issues"
+  },
+  "homepage": "https://github.com/MarkH817/dye-ameter#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.5",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.18.13",
+    "chai": "^4.1.2",
+    "concurrently": "^3.5.0",
+    "cssnano": "^3.10.0",
+    "del": "^3.0.0",
+    "electron": "1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-ejs": "^3.0.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-less": "^3.3.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-webpack": "^1.5.0",
+    "mocha": "^4.0.1",
+    "standard": "^10.0.3",
+    "webpack": "^3.8.0",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.2.0"
+  }
+}
