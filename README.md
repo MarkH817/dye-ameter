@@ -1,2 +1,2 @@
-# dye-ameter
+# Dye-ameter
 A color palette desktop app
