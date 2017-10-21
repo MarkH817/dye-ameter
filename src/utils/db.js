@@ -1,7 +1,13 @@
+/**
+  * Checks if localStorage is available
+  */
 export function hasStorage () {
   return typeof Storage !== 'undefined'
 }
 
+/**
+  * Saves the item as JSON string
+  */
 export async function save (id, item) {
   if (!hasStorage()) {
     throw new Error('Storage API not supported')
@@ -11,6 +17,9 @@ export async function save (id, item) {
   return null
 }
 
+/**
+  * Retreives the item
+  */
 export async function load (id) {
   if (!hasStorage()) {
     throw new Error('Storage API not supported')
