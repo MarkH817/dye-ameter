@@ -64,9 +64,14 @@ gulp.task('pages', () => {
     .pipe(browserSync.stream())
 })
 
-gulp.task('build', gulpSequence('clean', ['js:dev', 'styles', 'pages']))
+gulp.task('pwa', () => {
+  return gulp.src('pwa/*')
+    .pipe(gulp.dest('build'))
+})
 
-gulp.task('build:prod', gulpSequence('clean', ['js:prod', 'styles', 'pages']))
+gulp.task('build', gulpSequence('clean', ['js:dev', 'styles', 'pages', 'pwa']))
+
+gulp.task('build:prod', gulpSequence('clean', ['js:prod', 'styles', 'pages', 'pwa']))
 
 gulp.task('watch', () => {
   browserSync.init({

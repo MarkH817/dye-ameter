@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <% include ../components/metas %>
+
     <title>Dye-ameter</title>
 
     <% include ../components/stylesheets %>
   </head>
-  <body>
+  <body class="container">
     <div id="root"></div>
+
+    <noscript>
+      <h1>Hey, JavaScript needs to be enabled to use this app.</h1>
+    </noscript>
 
     <script src="js/bundle.vendor.js" charset="utf-8"></script>
     <script src="js/bundle.index.js" charset="utf-8"></script>

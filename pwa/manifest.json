@@ -1,0 +1,8 @@
+{
+  "name": "Dye-Ameter",
+  "short_name": "DyeAmeter",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0ce7ff"
+}
