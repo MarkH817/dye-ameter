@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Color from './Color'
 
-
 export default class Palette extends Component {
   constructor (props) {
     super(props)

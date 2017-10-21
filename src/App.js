@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, HashRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
 import {Home, NewPalette, EditPalette} from './containers'
 
 export default class App extends Component {

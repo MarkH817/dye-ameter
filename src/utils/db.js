@@ -125,5 +125,6 @@ export async function loadAllPalettes () {
     throw new Error('Storage API not supported')
   }
 
-  return await load('palettes')
+  let list = await load('palettes')
+  return list
 }
