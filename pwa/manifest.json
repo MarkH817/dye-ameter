@@ -4,5 +4,6 @@
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
+  "background_color": "#dfdfdf",
   "theme_color": "#0ce7ff"
 }

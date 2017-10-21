@@ -3,16 +3,22 @@
   <head>
     <% include ../components/metas %>
 
-    <title>Dye-ameter</title>
+    <title>Dye-Ameter</title>
 
     <% include ../components/stylesheets %>
   </head>
-  <body class="container">
-    <div id="root"></div>
+  <body>
+    <% include ../components/header %>
 
-    <noscript>
-      <h1>Hey, JavaScript needs to be enabled to use this app.</h1>
-    </noscript>
+    <div class="container content">
+      <main class="row" id="root"></main>
+
+      <noscript>
+        <h3>Hey, JavaScript needs to be enabled to use this app.</h3>
+      </noscript>
+    </div>
+
+    <% include ../components/footer %>
 
     <script src="js/bundle.vendor.js" charset="utf-8"></script>
     <script src="js/bundle.index.js" charset="utf-8"></script>

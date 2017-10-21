@@ -6,16 +6,9 @@ export default class App extends Component {
   render () {
     return (
       <Router>
-        <div>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/new'>Create Palette</Link>
-          </nav>
-
-          <main>
-            <Route exact path='/' component={Home} />
-            <Route path='/new' component={NewPalette} />
-          </main>
+        <div className='col-sm-12 col-md-12 col-lg-10 col-lg-offset-1'>
+          <Route exact path='/' component={Home} />
+          <Route path='/new' component={NewPalette} />
         </div>
       </Router>
     )
