@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link, HashRouter as Router, Route} from 'react-router-dom'
-import {Home, NewPalette} from './containers'
+import {Home, NewPalette, EditPalette} from './containers'
 
 export default class App extends Component {
   render () {
@@ -9,6 +9,7 @@ export default class App extends Component {
         <div className='col-sm-12 col-md-12 col-lg-10 col-lg-offset-1'>
           <Route exact path='/' component={Home} />
           <Route path='/new' component={NewPalette} />
+          <Route path='/edit/:id' component={EditPalette} />
         </div>
       </Router>
     )

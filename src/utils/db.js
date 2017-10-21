@@ -80,6 +80,29 @@ export async function loadPalette (id) {
 }
 
 /**
+  * Update color palette
+  */
+export async function updatePalette (id, palette) {
+  if (!hasStorage()) {
+    throw new Error('Storage API not supported')
+  }
+
+  let list = await load('palettes')
+
+  let newList = list.map(item => {
+    if (item.id === id) {
+      return palette
+    } else {
+      return item
+    }
+  })
+
+  await save('palettes', newList)
+
+  return true
+}
+
+/**
   * Remove color palette from storage
   */
 export async function removePalette (id) {
