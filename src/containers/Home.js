@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import {Palette} from '../components'
 import {db} from '../utils'
 
@@ -27,6 +28,8 @@ export default class Home extends Component {
     return (
       <div>
         <h2>Home</h2>
+        <Link className='button' to='/new'>Create New Palette</Link>
+
         {palettes}
       </div>
     )
