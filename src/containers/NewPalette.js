@@ -8,48 +8,55 @@ export default class NewPalette extends Component {
     this.state = {
       isSaved: false,
       title: '',
-      'color-1': '#D3061E',
-      'color-2': '#D3061E',
-      'color-3': '#D3061E',
-      'color-4': '#D3061E',
-      'color-5': '#D3061E'
+      colors: [
+        'D3061E',
+        'D3061E',
+        'D3061E',
+        'D3061E',
+        'D3061E'
+      ]
     }
 
-    this.handleChange = this.handleChange.bind(this)
+    this.titleChange = this.titleChange.bind(this)
+    this.colorChange = this.colorChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange (event) {
-    const {target} = event
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
+  titleChange (event) {
+    this.setState({
+      title: event.target.value
+    })
+  }
+
+  colorChange (event) {
+    let {name, value} = event.target
+    name = Number(name)
+    value = value.split('#').join('')
+
+    let updatedList = this.state.colors.map((item, index) => {
+      if (index === name) {
+        return value
+      }
+      return item
+    })
 
     this.setState({
-      [name]: value
+      colors: updatedList
     })
   }
 
   handleSubmit (event) {
     event.preventDefault()
 
-    console.log(JSON.stringify(this.state))
-
     if (this.state.title.trim() === '') {
       console.log('No Title')
       return
     }
 
-    let colors = []
-
-    for (let i = 1; i <= 5; i++) {
-      let color = this.state[`color-${i}`].split('#').join('')
-      colors.push(color)
-    }
-
     let data = {
       id: Number(Date.now()),
       title: this.state.title.trim(),
-      colors
+      colors: this.state.colors.map(value => value.toUpperCase())
     }
 
     db.savePalette(data)
@@ -63,15 +70,17 @@ export default class NewPalette extends Component {
   render () {
     let colorInputs = []
 
-    for (let i = 1; i <= 5; i++) {
-      let name = `color-${i}`
+    for (let i = 0; i < 5; i++) {
+      let name = `${i}`
+      let value = `#${this.state.colors[name]}`
+
       colorInputs.push((
         <div key={i} className='input-group fluid'>
           <label>
-            Color {i}
+            Color {i + 1}
           </label>
 
-          <input type='color' name={name} value={this.state[name]} onChange={this.handleChange} />
+          <input type='color' name={name} value={value} onChange={this.colorChange} />
         </div>
       ))
     }
@@ -87,7 +96,7 @@ export default class NewPalette extends Component {
             <label htmlFor='p-title'>
               Title
             </label>
-            <input type='text' id='p-title' name='title' value={this.state.title} onChange={this.handleChange} />
+            <input type='text' id='p-title' name='title' value={this.state.title} onChange={this.titleChange} />
           </div>
 
           <legend>Colors</legend>

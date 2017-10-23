@@ -82,7 +82,7 @@ export async function loadPalette (id) {
 /**
   * Update color palette
   */
-export async function updatePalette (id, palette) {
+export async function updatePalette (palette) {
   if (!hasStorage()) {
     throw new Error('Storage API not supported')
   }
@@ -90,7 +90,7 @@ export async function updatePalette (id, palette) {
   let list = await load('palettes')
 
   let newList = list.map(item => {
-    if (item.id === id) {
+    if (item.id === palette.id) {
       return palette
     } else {
       return item

@@ -14,6 +14,11 @@ export default class Home extends Component {
   componentDidMount () {
     db.loadAllPalettes()
       .then(palettes => {
+        // No palettes available
+        if (!palettes) {
+          return
+        }
+
         this.setState({
           palettes: palettes
         })
