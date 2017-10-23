@@ -58,5 +58,15 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2"
+  },
+  "standard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
   }
 }
