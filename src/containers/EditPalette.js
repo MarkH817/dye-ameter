@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
-import {Palette} from '../components'
 import {db} from '../utils'
 
 export default class EditPalette extends Component {

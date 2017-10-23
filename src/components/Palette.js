@@ -15,6 +15,7 @@ export default class Palette extends Component {
     ))
 
     let editUrl = `/edit/${this.props.id}`
+    let deleteUrl = `/delete/${this.props.id}`
 
     return (
       <section className='palette card fluid'>
@@ -22,11 +23,14 @@ export default class Palette extends Component {
           {this.props.title}
         </h3>
 
-        <Link className='button' to={editUrl}>Edit</Link>
-
         <section className='button-group'>
           {colors}
         </section>
+
+        <p className='align-right'>
+          <Link className='button small' to={editUrl}>Edit</Link>
+          <Link className='button small' to={deleteUrl}>Delete</Link>
+        </p>
       </section>
     )
   }
