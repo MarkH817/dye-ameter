@@ -26,6 +26,11 @@ export async function load (id) {
   }
 
   let itemJson = window.localStorage.getItem(id.toString())
+
+  if (itemJson === null) {
+    return null
+  }
+
   return JSON.parse(itemJson)
 }
 
