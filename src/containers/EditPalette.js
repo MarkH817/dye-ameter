@@ -15,6 +15,7 @@ export default class EditPalette extends Component {
     this.titleChange = this.titleChange.bind(this)
     this.colorChange = this.colorChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   titleChange (event) {
@@ -62,6 +63,12 @@ export default class EditPalette extends Component {
       })
   }
 
+  handleCancel (event) {
+    this.setState({
+      isSaved: true
+    })
+  }
+
   componentDidMount () {
     db.loadPalette(this.state.id)
       .then(palette => {
@@ -96,7 +103,7 @@ export default class EditPalette extends Component {
 
         <h2>Edit Palette</h2>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={() => {}}>
           <div className='input-group vertical'>
             <label htmlFor='p-title'>
               Title
@@ -108,9 +115,15 @@ export default class EditPalette extends Component {
 
           {colorInputs}
 
-          <button className='primary'>
-            Save
-          </button>
+          <p>
+            <button className='primary' onClick={this.handleSubmit}>
+              Save
+            </button>
+
+            <button onClick={this.handleCancel}>
+              Cancel
+            </button>
+          </p>
         </form>
       </div>
     )

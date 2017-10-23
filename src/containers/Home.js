@@ -27,7 +27,7 @@ export default class Home extends Component {
 
   render () {
     let palettes = this.state.palettes.map(item => (
-      <Palette key={item.id} id={item.id} title={item.title} colors={item.colors} />
+      <Palette key={item.id} id={item.id} title={item.title} colors={item.colors} showControls />
     ))
 
     return (

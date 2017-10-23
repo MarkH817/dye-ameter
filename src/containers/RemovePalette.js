@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Redirect} from 'react-router-dom'
+import {Palette} from '../components'
 import {db} from '../utils'
 
 export default class RemovePalette extends Component {
@@ -10,6 +12,24 @@ export default class RemovePalette extends Component {
       title: '',
       colors: []
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
+  }
+
+  handleSubmit (event) {
+    db.removePalette(this.state.id)
+      .then(result => {
+        this.setState({
+          isRemoved: true
+        })
+      })
+  }
+
+  handleCancel (event) {
+    this.setState({
+      isRemoved: true
+    })
   }
 
   componentDidMount () {
@@ -25,12 +45,22 @@ export default class RemovePalette extends Component {
   render () {
     return (
       <div>
+        {!this.state.isRemoved ? null : <Redirect to='/' />}
         <h2>
           Remove Palette
-          <small>Confirmation</small>
+          <small>Are you sure?</small>
         </h2>
 
-        <p>Are you sure?</p>
+        <Palette title={this.state.title} colors={this.state.colors} />
+
+        <p className='align-right'>
+          <button className='secondary' onClick={this.handleSubmit}>
+            Yes, I'm sure
+          </button>
+          <button onClick={this.handleCancel}>
+            Cancel
+          </button>
+        </p>
       </div>
     )
   }
