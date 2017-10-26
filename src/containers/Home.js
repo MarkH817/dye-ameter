@@ -32,10 +32,12 @@ export default class Home extends Component {
 
     return (
       <div>
+        <Link style={{float: 'right'}} className='button' to='/new'>Create New Palette</Link>
         <h2>Home</h2>
-        <Link className='button' to='/new'>Create New Palette</Link>
 
-        {palettes}
+        <div style={{clear: 'both'}}>
+          {palettes}
+        </div>
       </div>
     )
   }

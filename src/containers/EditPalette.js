@@ -103,7 +103,7 @@ export default class EditPalette extends Component {
 
         <h2>Edit Palette</h2>
 
-        <form onSubmit={() => {}}>
+        <form>
           <div className='input-group vertical'>
             <label htmlFor='p-title'>
               Title
@@ -115,9 +115,9 @@ export default class EditPalette extends Component {
 
           {colorInputs}
 
-          <p>
+          <p className='align-right'>
             <button className='primary' onClick={this.handleSubmit}>
-              Save
+              Update
             </button>
 
             <button onClick={this.handleCancel}>

@@ -20,6 +20,7 @@ export default class NewPalette extends Component {
     this.titleChange = this.titleChange.bind(this)
     this.colorChange = this.colorChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   titleChange (event) {
@@ -67,6 +68,12 @@ export default class NewPalette extends Component {
       })
   }
 
+  handleCancel (event) {
+    this.setState({
+      isSaved: true
+    })
+  }
+
   render () {
     let colorInputs = []
 
@@ -91,7 +98,7 @@ export default class NewPalette extends Component {
 
         <h2>Create New Palette</h2>
 
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <div className='input-group vertical'>
             <label htmlFor='p-title'>
               Title
@@ -103,9 +110,15 @@ export default class NewPalette extends Component {
 
           {colorInputs}
 
-          <button className='primary'>
-            Save
-          </button>
+          <p className='align-right'>
+            <button className='primary' onClick={this.handleSubmit}>
+              Save
+            </button>
+
+            <button onClick={this.handleCancel}>
+              Cancel
+            </button>
+          </p>
         </form>
       </div>
     )
